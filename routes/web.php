@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\Backend\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
+//Frontend
+Route::get('/', [PostController::class,'index']);
+Route::post('/posts/store',[PostController::class,'store']);
+Route::post('/posts/delete',[PostController::class,'destroy']);
+Route::get('/posts/edit',[PostController::class,'edit']);
+Route::post('/posts/update',[PostController::class,'update']);
+// Auth
 require __DIR__.'/auth.php';
+//Backend
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
+    Route::get('/',[PageController::class,'index'])->name('dashboard');
+});

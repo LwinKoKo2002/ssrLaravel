@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
 use Database\Seeders\CategorySeeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,8 +19,8 @@ class DatabaseSeeder extends Seeder
     {
         Category::factory(5)->create();
         Post::factory(300)->create();
-        // $this->call([
-        //     CategorySeeder::class
-        // ]);
+        $this->call([
+            UserSeeder::class
+        ]);
     }
 }
