@@ -14,7 +14,7 @@
     <!-- DaterangePicker -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <!-- Custom Css -->
-    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/style.css')}}">
 </head>
 <body>
     
