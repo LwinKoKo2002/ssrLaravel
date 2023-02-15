@@ -52,9 +52,18 @@
           </li> --}}
           <li class="nav-item">
             <a href="{{ route('admin.dashboard') }}" class="nav-link @yield('admin-active')">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fa-solid fa-gauge"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.company.index') }}" class="nav-link @yield('company-active')">
+              <i class="nav-icon fa-solid fa-building"></i>
+              <p>
+                Company
               </p>
             </a>
           </li>

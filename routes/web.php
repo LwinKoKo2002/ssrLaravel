@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Backend\PageController;
+use App\Http\Controllers\Backend\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,5 @@ require __DIR__.'/auth.php';
 //Backend
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::get('/',[PageController::class,'index'])->name('dashboard');
+    Route::resource('company',CompanyController::class);
 });
