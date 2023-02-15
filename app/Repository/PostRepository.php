@@ -7,7 +7,17 @@ use App\Models\Category;
 class PostRepository implements IPostRepository{
 
     public function getAllPosts(){
-        return Post::with(['category','state'])->orderBy('id','desc')->get();
+        $post = Post::with(['category','state']);
+        if(request()->search){
+            $post = $post->where('name','LIKE','%'.request()->search.'%');
+        }
+        if(request()->category){
+            $post = $post->where('category_id',request()->category);
+        }
+        if(request()->date){
+            $post = $post->whereDate('created_at',request()->date);
+        }
+        return $post->orderBy('id','desc')->paginate(15);
     }
 
     public function getAllCategories(){

@@ -1,8 +1,8 @@
 <x-layout>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card mt-5">
+            <div class="col-12">
+                <div class="card my-5">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4>{{__('messages.title')}}</h4>
                         <!-- Button Create modal -->       

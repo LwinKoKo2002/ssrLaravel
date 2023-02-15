@@ -128,4 +128,45 @@ $(document).ready(function(){
             }
         })
     })
+    //Show Clear Button
+    var show = document.getElementById('search').value;
+    if(show){
+        document.getElementById('clear_btn').style.display = 'block';
+    }
+    //DaterangePicker
+    $('.date').daterangepicker({
+        "singleDatePicker": true,
+        "autoUpdateInput": false,
+        "locale": {
+            "format": "YYYY-MM-DD",
+        },
+    });
+    $('.date').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('YYYY-MM-DD'));
+        var date = $('.date').val();
+        var id = $('.category_search').val();
+        history.pushState(null, '', `?date=${date}&category=${id}`);
+        window.location.reload();
+      });
+
+      $('.date').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+        var date = $('.date').val();
+        var id = $('.category_search').val();
+        history.pushState(null, '', `?date=${date}&category=${id}`);
+        window.location.reload();
+      });
+    //Clear Button
+    $('#clear_btn').on('click',function(){
+        window.location.replace('/');
+        return false;
+    })
+    //Filter By Category
+    $('.category_search').change(function(e){
+        e.preventDefault();
+        var date = $('.date').val();
+        var id = $('.category_search').val();
+        history.pushState(null, '', `?date=${date}&category=${id}`);
+        window.location.reload();
+    })
 })

@@ -1,0 +1,8 @@
+.search_form{
+    position: relative;
+}
+
+#clear_btn{
+    display: none;
+    /* font-weight: bolder; */
+}
